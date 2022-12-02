@@ -15,16 +15,16 @@ public class Banheiro {
     }
 
     static Random gerador = new Random();
-    int tamanhoBanheiro;
-    AtomicInteger ocupacaoBanheiro;
     volatile Pessoa generoNoBanheiro;
+    AtomicInteger ocupacaoBanheiro;
+    int tamanhoBanheiro;
     Semaphore semaforoDeEntrada;
     Semaphore semaforoDeGenero = new Semaphore(1);
 
     public Banheiro(int tamanhoBanheiro) {
+        this.ocupacaoBanheiro =  new AtomicInteger(0);
         this.tamanhoBanheiro = tamanhoBanheiro;
         this.semaforoDeEntrada = new Semaphore(tamanhoBanheiro);
-        this.ocupacaoBanheiro =  new AtomicInteger(0);
     }
 
     void ocuparGenero(Pessoa pessoa) throws InterruptedException {
