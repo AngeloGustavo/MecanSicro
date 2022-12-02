@@ -10,9 +10,11 @@ class ThreadPessoa implements Runnable {
     @Override
     public void run() {
         try {
-            for(int i=0;i<50;i++) {
+            for(int i=0;i<10;i++) {
                 pessoa.setId(i);
-                banheiro.ocuparBanheiro(pessoa);
+                banheiro.ocuparGenero(pessoa);
+                banheiro.usarBanheiro(pessoa);
+                banheiro.liberarGenero(pessoa);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
