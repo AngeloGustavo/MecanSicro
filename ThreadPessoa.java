@@ -1,6 +1,3 @@
-package novo;
-
-
 class ThreadPessoa implements Runnable {
     public Banheiro banheiro;
     public Pessoa pessoa;

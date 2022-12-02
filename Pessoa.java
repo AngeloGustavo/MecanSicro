@@ -1,22 +1,17 @@
-public class Pessoa {
+import java.util.Random;
+
+enum Pessoa{
+    HOMEM("Homem"), MULHER("Mulher");
     String genero;
-    int esperaEmMs;
+    int id;
 
-    Pessoa(int _genero, int _esperaEmMs){
-        if(_genero == 0)
-            genero = "Homem";
-        else
-            genero = "Mulher";
-
-        esperaEmMs = _esperaEmMs;
+    Pessoa(String genero) {
+        this.genero = genero;
+        Random gerador = new Random();
+        id = gerador.nextInt(100);
     }
 
-    void printInfo(){
-        System.out.println(genero + " por " + esperaEmMs + " milisegundos");
-    }
-
-    @Override
-    public String toString() {
-        return genero+esperaEmMs;
+    void setId(int id){
+        this.id = id;
     }
 }
