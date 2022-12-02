@@ -1,5 +1,6 @@
 package novo;
 
+
 class ThreadPessoa implements Runnable {
     public Banheiro banheiro;
     public Pessoa pessoa;
@@ -12,8 +13,9 @@ class ThreadPessoa implements Runnable {
     @Override
     public void run() {
         try {
-            for(int i=0;i<100;i++) {
-                banheiro.occupy(pessoa);
+            for(int i=0;i<50;i++) {
+                pessoa.setId(i);
+                banheiro.ocuparBanheiro(pessoa);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
